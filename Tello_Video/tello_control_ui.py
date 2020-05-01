@@ -66,6 +66,7 @@ class TelloUI:
 
         # the sending_command will send command to tello every 5 seconds
         self.sending_command_thread = threading.Thread(target = self._sendingCommand)
+
     def videoLoop(self):
         """
         The mainloop thread of Tkinter 
@@ -97,7 +98,7 @@ class TelloUI:
                     thread_tmp = threading.Thread(target=self._updateGUIImage,args=(image,))
                     thread_tmp.start()
                     time.sleep(0.03)                                                            
-        except RuntimeError, e:
+        except RuntimeError as e:
             print("[INFO] caught a RuntimeError")
 
            
